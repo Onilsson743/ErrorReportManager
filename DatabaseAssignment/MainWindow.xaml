@@ -1,0 +1,47 @@
+﻿<Window x:Class="DatabaseAssignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseAssignment"
+        xmlns:views="clr-namespace:DatabaseAssignment.MVVM.Views"
+        xmlns:viewmodels="clr-namespace:DatabaseAssignment.MVVM.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="0">
+            <Button Content="Skapa Ärende" Command="{Binding GoToAddErrorReportViewCommand}" Height="35" Width="auto" Margin="0 10 0 0" Padding="5"/>
+            <Button Content="Hantera Ärenden" Command="{Binding GoToErrorReportsViewCommand}" Height="35" Width="auto" Margin="10 10 0 0" Padding="5"/>
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:AddErrorReportViewModel}">
+                    <views:AddErrorReportView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:MainErrorReportsViewModel}">
+                    <views:MainErrorReportsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:ActiveErrorReportsViewModel}">
+                    <views:ActiveErrorReportsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:NewErrorReportsViewModel}">
+                    <views:NewErrorReportsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:FinishedErrorReportsViewModel}">
+                    <views:FinishedErrorReportsView />
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+
+
+
+    </Grid>
+</Window>

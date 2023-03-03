@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="DatabaseAssignment.MVVM.Views.MainErrorReportsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DatabaseAssignment.MVVM.Views" 
+             xmlns:viewmodels="clr-namespace:DatabaseAssignment.MVVM.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:MainErrorReportsViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="0">
+            <Button Content="Nya Ärenden" Command="{Binding ShowNewErrorReportsCommand}" Height="27" Width="auto" Margin="10 0 0 0" Padding="5"/>
+            <Button Content="Aktiva Ärenden" Command="{Binding ShowActiveErrorReportsCommand}" Height="27" Width="auto" Margin="10 0 0 0" Padding="5"/>
+            <Button Content="Färdiga Ärenden" Command="{Binding ShowFinishedErrorReportsCommand}" Height="27" Width="auto" Margin="10 0 0 0" Padding="5"/>
+
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+            
+        </ContentControl>
+
+
+
+    </Grid>
+</UserControl>
