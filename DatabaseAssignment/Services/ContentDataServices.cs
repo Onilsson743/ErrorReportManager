@@ -16,6 +16,7 @@ public class ContentDataServices
     public static ObservableCollection<Employee> Employees { get; set; } = new ObservableCollection<Employee>();
     public static ObservableCollection<ErrorReport> ErrorReports { get; set; } = new ObservableCollection<ErrorReport>();    
     public static ObservableCollection<Person> Persons { get; set; } = new ObservableCollection<Person>();
+    public static ObservableObject Test { get; set; }
 
 
 

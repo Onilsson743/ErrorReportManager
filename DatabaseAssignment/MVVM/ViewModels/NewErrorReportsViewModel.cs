@@ -13,6 +13,7 @@ namespace DatabaseAssignment.MVVM.ViewModels;
 partial class NewErrorReportsViewModel : ObservableObject
 {
     public static ObservableCollection<Person> Persons { get; set; } = new ObservableCollection<Person>();
+    public static ObservableCollection<ErrorReport> ErrorReport { get; set; } = new ObservableCollection<ErrorReport>();
 
 
 

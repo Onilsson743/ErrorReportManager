@@ -40,9 +40,6 @@ namespace DatabaseAssignment.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
                     b.Property<string>("PostalCode")
                         .IsRequired()
                         .HasColumnType("char(6)");
@@ -53,8 +50,6 @@ namespace DatabaseAssignment.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
 
                     b.ToTable("Adresses");
                 });
@@ -146,6 +141,9 @@ namespace DatabaseAssignment.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AdressId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -167,21 +165,12 @@ namespace DatabaseAssignment.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AdressId");
+
                     b.HasIndex("Email")
                         .IsUnique();
 
                     b.ToTable("Persons");
-                });
-
-            modelBuilder.Entity("DatabaseAssignment.MVVM.Models.Entities.AdressEntity", b =>
-                {
-                    b.HasOne("DatabaseAssignment.MVVM.Models.Entities.PersonEntity", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("DatabaseAssignment.MVVM.Models.Entities.CommentsEntity", b =>
@@ -191,7 +180,7 @@ namespace DatabaseAssignment.Migrations
                         .HasForeignKey("EmployeeId");
 
                     b.HasOne("DatabaseAssignment.MVVM.Models.Entities.ErrorReportEntity", "ErrorReport")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("ErrorReportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -227,6 +216,22 @@ namespace DatabaseAssignment.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("DatabaseAssignment.MVVM.Models.Entities.PersonEntity", b =>
+                {
+                    b.HasOne("DatabaseAssignment.MVVM.Models.Entities.AdressEntity", "Adress")
+                        .WithMany()
+                        .HasForeignKey("AdressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Adress");
+                });
+
+            modelBuilder.Entity("DatabaseAssignment.MVVM.Models.Entities.ErrorReportEntity", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

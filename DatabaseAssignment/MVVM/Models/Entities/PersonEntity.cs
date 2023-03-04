@@ -20,4 +20,8 @@ public class PersonEntity
 
     [Column(TypeName = "char(13)")]
     public string Phone { get; set; } = null!;
+
+    public int AdressId { get; set; }
+    public AdressEntity Adress { get; set; } = null!;
+
 }

@@ -24,6 +24,5 @@ public class AdressEntity
     [StringLength(100)]
     public string City { get; set; } = string.Empty;
 
-    public int PersonId { get; set; }
-    public PersonEntity Person { get; set; } = null!;
+    
 }

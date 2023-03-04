@@ -13,6 +13,7 @@ public partial class App : Application
     protected async override void OnStartup(StartupEventArgs e)
     {
         DbServices db = new DbServices();
+        await db.GetErrorReports();
         await db.GetPersons();
 
         MainWindow = new MainWindow()

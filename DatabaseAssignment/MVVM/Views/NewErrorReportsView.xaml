@@ -10,20 +10,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
-        <ListView Foreground="White" 
-                      BorderBrush="Transparent"  
-                      Grid.Column="0" 
-                      Background="Transparent" 
-                      ItemsSource="{Binding Persons}" 
-                      SelectionMode="Single" 
-                      SelectedItem="{Binding name}"
-                      HorizontalContentAlignment="Stretch"
-                      x:Name="Contacts_ListView"
-                      >
+        <ListView Foreground="Black" 
+            BorderBrush="Transparent"  
+            Grid.Column="0" 
+            Background="Transparent" 
+            ItemsSource="{Binding ErrorReport}" 
+            SelectionMode="Single" 
+            SelectedItem="{Binding name}"
+            HorizontalContentAlignment="Stretch"
+            x:Name="Contacts_ListView"     
+            >
             <ListView.ItemTemplate >
-                <DataTemplate DataType="{x:Type models:Person}">
-                    <Border CornerRadius="5" Background="#100E27">
+                <DataTemplate DataType="{x:Type models:ErrorReport}">
+                    <Border CornerRadius="5" Background="#E6E6E6">
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -31,8 +35,29 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0" HorizontalAlignment="Left" >
-                                <TextBlock Text="{Binding FirstName}" Padding="5 5 0 0" />
-                                <TextBlock Text="{Binding LastName}" Padding="5 0 0 5" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Datum" />
+                                    <TextBlock Text="{Binding Date}" Padding="5 5 0 0" />
+                                </StackPanel>
+                                
+
+                                <Label Content="Beskrivning" />
+                                <TextBlock Text="{Binding Description}" Padding="5 0 0 5" />
+                                
+                                <Label Content="Status" />
+                                <TextBlock Text="{Binding Status}" Padding="5 0 0 5" />
+
+                                <Label Content="Förnamn" />
+                                <TextBlock Text="{Binding Person.FirstName}" Padding="5 0 0 5" />
+
+                                <Label Content="Efternamn" />
+                                <TextBlock Text="{Binding Person.LastName}" Padding="5 0 0 5" />
+                                
+                                <Label Content="Email" />
+                                <TextBlock Text="{Binding Person.Email}" Padding="5 0 0 5" />
+
+                                <Label Content="Telefon:" />
+                                <TextBlock Text="{Binding Person.Phone}" Padding="5 0 0 5" />
                             </StackPanel>
                         </Grid>
                     </Border>

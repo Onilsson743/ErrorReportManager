@@ -18,14 +18,16 @@ public class DbServices
         _context = new DataContext();
     }
 
+    //Get functions
+    #region
     //Get All Error Reports
-    public async Task<List<ErrorReport>> GetErrorReports()
+    public async Task GetErrorReports()
     {
-        var result = await _context.ErrorReports.ToListAsync();
+        var result = await _context.ErrorReports.Include(p => p.Person).ThenInclude(a => a.Adress).ToListAsync();
 
         if (result != null) 
         {
-            List<ErrorReport> errorReports = new List<ErrorReport>();
+            ObservableCollection<ErrorReport> errorReports = new ObservableCollection<ErrorReport>();
 
             foreach (var report in result)
             {
@@ -34,12 +36,29 @@ public class DbServices
                     ErrorId = report.ErrorId,
                     Date = report.Date,
                     Description = report.Description,
-                    Status = report.Status,                    
+                    Status = report.Status, 
+                    Person = new Person()
+                    {
+                       Id = report.Person.Id,
+                       FirstName = report.Person.FirstName,
+                       LastName = report.Person.LastName,
+                       Email = report.Person.Email,
+                       Phone = report.Person.Phone,
+                       Adress = new Adress()
+                       {
+                           ApartmentNumber = report.Person.Adress.ApartmentNumber,
+                           StreetName = report.Person.Adress.StreetName,
+                           PostalCode = report.Person.Adress.PostalCode,
+                           City = report.Person.Adress.City
+                       }
+                       
+                    },
+
                 });
             }
-            return errorReports;
+            NewErrorReportsViewModel.ErrorReport = errorReports;
+            
         }
-        return null;
     }
 
     //Get All Persons
@@ -55,6 +74,7 @@ public class DbServices
             {
                 persons.Add(new Person()
                 {
+                    Id = item.Id,
                     FirstName = item.FirstName,
                     LastName = item.LastName,
                     Email = item.Email,
@@ -63,6 +83,6 @@ public class DbServices
             }
             NewErrorReportsViewModel.Persons = persons;
         }
-        
     }
+    #endregion 
 }

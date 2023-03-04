@@ -19,5 +19,5 @@ public class ErrorReportEntity
 
     public string Status { get; set; } = null!;
 
-    public ICollection<CommentsEntity> Comments = new HashSet<CommentsEntity>();
+    public ICollection<CommentsEntity> Comments { get; set; }
 }
