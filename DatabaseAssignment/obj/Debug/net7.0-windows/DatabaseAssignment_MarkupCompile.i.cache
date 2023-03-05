@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\App.xaml
 61094041596
 
-34-522610681
+332090278320
 227314025405
 MainWindow.xaml;MVVM\Views\ActiveErrorReportsView.xaml;MVVM\Views\AddErrorReportView.xaml;MVVM\Views\FinishedErrorReportsView.xaml;MVVM\Views\MainErrorReportsView.xaml;MVVM\Views\NewErrorReportsView.xaml;
 
-False
+True
 

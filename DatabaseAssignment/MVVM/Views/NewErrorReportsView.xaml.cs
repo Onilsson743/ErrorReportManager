@@ -28,7 +28,9 @@ namespace DatabaseAssignment.MVVM.Views
             InitializeComponent();
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+
+
+        private void Border_ShowComments(object sender, MouseButtonEventArgs e)
         {
             var button = (Border)sender;
             var contact = (ErrorReport)button.DataContext;
@@ -37,6 +39,11 @@ namespace DatabaseAssignment.MVVM.Views
             {
                 NewErrorReportsViewModel.Comments.Add(comment);
             }     
+        }
+
+        private void btn_AddCommentClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
