@@ -108,7 +108,7 @@ namespace DatabaseAssignment.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ErrorId"));
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("DATETIME DEFAULT GETDATE()");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -166,9 +166,6 @@ namespace DatabaseAssignment.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdressId");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("Persons");
                 });

@@ -8,17 +8,19 @@
              xmlns:viewmodels="clr-namespace:DatabaseAssignment.MVVM.ViewModels" 
              d:DataContext="{d:DesignInstance Type=viewmodels:NewErrorReportsViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView Foreground="Black" 
+        <!--Displays all error reports-->
+        <ListView Foreground="white" 
             BorderBrush="Transparent"  
             Grid.Column="0" 
-            Background="Transparent" 
+            Background="#18191A" 
             ItemsSource="{Binding ErrorReport}" 
             SelectionMode="Single" 
             SelectedItem="{Binding name}"
@@ -27,23 +29,22 @@
             >
             <ListView.ItemTemplate >
                 <DataTemplate DataType="{x:Type models:ErrorReport}">
-                    <Border CornerRadius="5" Background="#E6E6E6">
+                    <Border CornerRadius="3" Background="#3A3B3C" MouseDown="Border_MouseDown">
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Grid.Column="0" HorizontalAlignment="Left" >
+                            <StackPanel Grid.Column="0" >
                                 <StackPanel Orientation="Horizontal">
-                                    <Label Content="Datum" />
+                                    <Label Content="Datum:" Foreground="white"/>
                                     <TextBlock Text="{Binding Date}" Padding="5 5 0 0" />
                                 </StackPanel>
-                                
 
-                                <Label Content="Beskrivning" />
+                                <Label Content="Beskrivning" Foreground="white"/>
                                 <TextBlock Text="{Binding Description}" Padding="5 0 0 5" />
-                                
+
                                 <Label Content="Status" />
                                 <TextBlock Text="{Binding Status}" Padding="5 0 0 5" />
 
@@ -52,14 +53,44 @@
 
                                 <Label Content="Efternamn" />
                                 <TextBlock Text="{Binding Person.LastName}" Padding="5 0 0 5" />
-                                
+
                                 <Label Content="Email" />
                                 <TextBlock Text="{Binding Person.Email}" Padding="5 0 0 5" />
 
                                 <Label Content="Telefon:" />
                                 <TextBlock Text="{Binding Person.Phone}" Padding="5 0 0 5" />
                             </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                                <Button Height="50" VerticalAlignment="Bottom" Content="Se yttlgare information" >
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </StackPanel>
                         </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <!--Displays all comments to selected error report-->
+
+        <ListView Foreground="white" 
+                  Grid.Column="1" 
+                  Background="Transparent" 
+                  ItemsSource="{Binding Comments}"
+                  HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type models:Comments}">
+                    <Border Background="#3A3B3C" CornerRadius="3">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Id}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
+                            <TextBlock Text="{Binding Comment}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
+                        </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>

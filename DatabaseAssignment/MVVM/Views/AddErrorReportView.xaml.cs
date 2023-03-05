@@ -30,15 +30,24 @@ namespace DatabaseAssignment.MVVM.Views
 
         private async void AddErrorReportClick(object sender, RoutedEventArgs e)
         {
-            var context = new PersonService();
-
-            await context.Create(new PersonEntity
+            var context = new DbServices();
+            PersonEntity person = new PersonEntity
             {
                 FirstName = tb_FirstName.Text,
                 LastName = tb_LastName.Text,
-                Email= tb_Email.Text,
-                Phone = tb_PhoneNumber.Text
-            });
+                Email = tb_Email.Text,
+                Phone = tb_PhoneNumber.Text,
+            };
+            AdressEntity adress = new AdressEntity
+            {
+                ApartmentNumber = tb_ApartmentNumber.Text,
+                StreetName = tb_StreetName.Text,
+                PostalCode = tb_PostalCode.Text,
+                City= tb_City.Text
+            };           
+            string description = tb_Description.Text;
+
+            await context.CreateErrorReport(person, adress, description);
             MessageBox.Show("klar", "klar");
         }
     }

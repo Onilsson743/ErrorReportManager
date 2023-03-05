@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseAssignment.MVVM.Models.Entities;
 
-[Index(nameof(Email), IsUnique = true)]
 public class PersonEntity
 {
     public int Id { get; set; }

@@ -7,54 +7,100 @@
              xmlns:viewmodels="clr-namespace:DatabaseAssignment.MVVM.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:AddErrorReportViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Foreground="white">
     <Grid Margin="20 0">
-        <ScrollViewer>
-            <StackPanel Margin="10 0">
-                <Label FontSize="20" Content="Skapa en felanmälan"/>
-                <TextBlock Text="Förnamn" Margin="0 0 30 0"/>
-                <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 10 10" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label FontSize="20" Content="Skapa en ny felanmälan" Foreground="white"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Efternamn" />
-                <TextBox Name="tb_LastName" Padding="3" Margin="0 0 10 10" />
+                <StackPanel Grid.Column="0" Margin="10 0">
 
-                <TextBlock Text="E-postadres" />
-                <TextBox Name="tb_Email" Padding="3" Margin="0 0 10 10" />
+                    <Label FontSize="15" Content="Kontaktupgifter" Foreground="white" Margin="-6 0 0 0"/>
 
-                <TextBlock Text="Telefonnummer" />
-                <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 10 10" />
+                    <TextBlock Text="Förnamn" Foreground="#B0B3B8"/>
+                    <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white"/>
 
-                <TextBlock Text="Adress" />
-                <TextBox Name="tb_Address" Padding="3" Margin="0 0 10 10" />
+                    <TextBlock Text="Efternamn" Foreground="#B0B3B8" />
+                    <TextBox Name="tb_LastName" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white"/>
 
-                <TextBlock Text="Postnummer" />
-                <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 10 10" />
+                    <TextBlock Text="E-postadres" Foreground="#B0B3B8" />
+                    <TextBox Name="tb_Email" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white"/>
 
-                <TextBlock Text="Ort" />
-                <TextBox Name="tb_City" Padding="3" Margin="0 0 10 10" />
+                    <TextBlock Text="Telefonnummer"  Foreground="#B0B3B8"/>
+                    <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white"/>
 
-                <TextBlock Text="Lägenhetsnummer (Ej obligatoriskt)" />
-                <TextBox Name="tb_ApartmentNumber" Padding="3" Margin="0 0 10 10" />
+                    <TextBlock Text="Adress" Foreground="#B0B3B8" />
+                    <TextBox Name="tb_StreetName" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white"/>
 
-                <TextBlock Margin="0 40 0 0" Text="Vänligen beskriv ditt ärende" FontWeight="DemiBold"  FontSize="15"/>
-                <TextBox 
-                    Name="tb_Comment"
-                    Padding="3"
-                    Margin="0 0 10 10"
-                    TextWrapping="Wrap"
-                    AcceptsReturn="True"
-                    VerticalScrollBarVisibility="Visible"/>
+                    <TextBlock Text="Postnummer" Foreground="#B0B3B8"/>
+                    <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white"/>
 
+                    <TextBlock Text="Ort" Foreground="#B0B3B8"/>
+                    <TextBox Name="tb_City" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white" />
 
-                <ComboBox Name="cb_Status">
-                    <ComboBoxItem IsSelected="True">Ej Påbörjad</ComboBoxItem>
-                    <ComboBoxItem>Påbörjad</ComboBoxItem>
-                    <ComboBoxItem>Avslutad</ComboBoxItem>
-                </ComboBox>
+                    <TextBlock Text="Lägenhetsnummer (Ej obligatoriskt)" Foreground="#B0B3B8" />
+                    <TextBox Name="tb_ApartmentNumber" Padding="3" Margin="0 0 10 10" Background="#242526" BorderThickness="0" Foreground="white" />
 
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 0 10 0">
+                    <Label FontSize="15" Content="Vänligen beskriv ditt ärende" Foreground="white" Margin="-6 0 0 0"/>
+                    <TextBox 
+                        Name="tb_Description"
+                        Height="200"
+                        Padding="3"
+                        Margin="0 16 10 10"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        VerticalScrollBarVisibility="Visible"
+                        Background="#242526"
+                        Foreground="white"
+                        BorderThickness="0"/>
 
-                <Button Content="Skicka in" Click="AddErrorReportClick" Padding="5" Margin="0 15 10 10"/>
-            </StackPanel>
+                    <!--Button for sending error report-->
+                    <Button Foreground="white"
+                    Grid.Column="0"
+                    Content="Skicka felanmälan"
+                    Height="35"
+                    Margin="1 0 1 0"
+                    Click="AddErrorReportClick"
+                    >
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#242526"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#3A3B3C"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </UserControl>

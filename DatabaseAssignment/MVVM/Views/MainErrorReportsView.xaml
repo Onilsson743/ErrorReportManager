@@ -7,27 +7,119 @@
              xmlns:viewmodels="clr-namespace:DatabaseAssignment.MVVM.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:MainErrorReportsViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-       
 
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="0">
-            <Button Content="Nya Ärenden" Command="{Binding ShowNewErrorReportsCommand}" Height="27" Width="auto" Margin="10 0 0 0" Padding="5"/>
-            <Button Content="Aktiva Ärenden" Command="{Binding ShowActiveErrorReportsCommand}" Height="27" Width="auto" Margin="10 0 0 0" Padding="5"/>
-            <Button Content="Färdiga Ärenden" Command="{Binding ShowFinishedErrorReportsCommand}" Height="27" Width="auto" Margin="10 0 0 0" Padding="5"/>
-
-        </StackPanel>
-
-        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
-            
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Button for navigating to new error reports-->
+            <Button Foreground="white"
+                    Grid.Column="0"
+                    Content="Nya Ärenden"
+                    Height="35"
+                    Margin="1 0 1 0"
+                    Command="{Binding ShowNewErrorReportsCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#242526"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3A3B3C"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!--Button for navigating to active error reports-->
+            <Button Foreground="white"
+                    Grid.Column="1"
+                    Content="Aktiva Ärenden"
+                    Height="35"
+                    Margin="1 0 1 0"
+                    Command="{Binding ShowActiveErrorReportsCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#242526"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3A3B3C"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <!--Button for navigating to finished error report-->
+            <Button Foreground="white"
+                    Grid.Column="2"
+                    Content="Avslutade Ärenden"
+                    Height="35"
+                    Margin="1 0 1 0"
+                    Command="{Binding GoToAddErrorReportViewCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#242526"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3A3B3C"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}" >
         </ContentControl>
-
-
-
     </Grid>
 </UserControl>

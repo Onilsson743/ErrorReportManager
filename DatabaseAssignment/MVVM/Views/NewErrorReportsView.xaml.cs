@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DatabaseAssignment.MVVM.Models;
+using DatabaseAssignment.MVVM.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,17 @@ namespace DatabaseAssignment.MVVM.Views
         public NewErrorReportsView()
         {
             InitializeComponent();
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var button = (Border)sender;
+            var contact = (ErrorReport)button.DataContext;
+            NewErrorReportsViewModel.Comments.Clear();
+            foreach (var comment in contact.CommentsList)
+            {
+                NewErrorReportsViewModel.Comments.Add(comment);
+            }     
         }
     }
 }
