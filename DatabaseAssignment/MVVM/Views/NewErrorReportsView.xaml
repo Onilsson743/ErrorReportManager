@@ -52,7 +52,7 @@
                                 <Label Content="Beskrivning" Foreground="#B0B3B8"/>
                                 <TextBlock Text="{Binding Description}" Padding="5 0 0 0" />
 
-                                
+
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
@@ -71,23 +71,93 @@
         </ListView>
 
 
-        <!--Displays all comments to selected error report-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"  />
+                <RowDefinition Height="*"  />
+            </Grid.RowDefinitions>
 
-        <ListView Foreground="white" 
-                  Grid.Column="1" 
+            <!--Displays all comments to selected error report-->
+            <ListView Foreground="white" 
+                  Grid.Row="0" 
                   Background="Transparent" 
                   ItemsSource="{Binding Comments}"
                   HorizontalContentAlignment="Stretch">
-            <ListView.ItemTemplate>
-                <DataTemplate DataType="{x:Type models:Comments}">
-                    <Border Background="#242526" CornerRadius="3">
-                        <StackPanel>
-                            <TextBlock Text="{Binding Id}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
-                            <TextBlock Text="{Binding Comment}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type models:Comments}">
+                        <Border Background="#242526" CornerRadius="3">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Id}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
+                                <TextBlock Text="{Binding Comment}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--Comment box-->
+            <StackPanel Grid.Row="1">
+                <!--<Label FontSize="15" Content="Vänligen beskriv ditt ärende" Foreground="white" Margin="-6 0 0 0"/>-->
+                <TextBox 
+                        x:Name="tb_Comment"
+                        Height="150"
+                        Padding="3"
+                        Margin="0 16 10 10"
+                        TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        VerticalScrollBarVisibility="Visible"
+                        Background="#242526"
+                        Foreground="white"
+                        BorderThickness="0"
+                        />
+                <TextBlock IsHitTestVisible="False" Text="Lägg till en till kommentar" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,-300,0,0" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tb_Comment}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <!--Button for sending error report-->
+                <Button Foreground="white"
+                    Grid.Column="0"
+                    Content="Lägg till kommentar"
+                    Height="35"                    
+                    Click="btn_AddCommentClick"
+                    >
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="3"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#242526"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#3A3B3C"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+
     </Grid>
 </UserControl>

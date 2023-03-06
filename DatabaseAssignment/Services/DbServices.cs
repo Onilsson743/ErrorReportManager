@@ -63,8 +63,7 @@ public class DbServices
                 }
                 errorReports.Add(eReport);
             }
-            NewErrorReportsViewModel.ErrorReport = errorReports;
-            
+            ContentDataServices.ErrorReports = errorReports;            
         }
     }
 
@@ -93,8 +92,10 @@ public class DbServices
     }
     #endregion
 
-    //Add error report
+
+    //Add functions
     #region
+    //Add error report
     public async Task CreateErrorReport(PersonEntity person, AdressEntity adress, string description)
     {
         
@@ -123,6 +124,5 @@ public class DbServices
     }
     #endregion
 
-}
 
-//[Column(TypeName = "DATETIME DEFAULT GETDATE()")] 
+}

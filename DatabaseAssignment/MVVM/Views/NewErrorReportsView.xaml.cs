@@ -1,5 +1,6 @@
 ﻿using DatabaseAssignment.MVVM.Models;
 using DatabaseAssignment.MVVM.ViewModels;
+using DatabaseAssignment.MVVM.Views.CustomWindow;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,9 +28,6 @@ namespace DatabaseAssignment.MVVM.Views
         {
             InitializeComponent();
         }
-
-
-
         private void Border_ShowComments(object sender, MouseButtonEventArgs e)
         {
             var button = (Border)sender;
@@ -43,7 +41,28 @@ namespace DatabaseAssignment.MVVM.Views
 
         private void btn_AddCommentClick(object sender, RoutedEventArgs e)
         {
+            var button = (Button)sender;
+            var report = (ErrorReport)button.DataContext;
 
+            if (report != null) 
+            {
+                MessageBox.Show("Finns något!", "Finns");
+            } else
+            {
+                MessageBox.Show("Finns Inget!", "Finns inget");
+            }
+
+            //var button = (Button)sender;
+            //var contact = (ErrorReport)button.DataContext;
+            //NewErrorReportsViewModel.Comments.Clear();
+            //foreach (var comment in contact.CommentsList)
+            //{
+            //    NewErrorReportsViewModel.Comments.Add(comment);
+            //}
+
+
+            //AddCommentsWindow window = new AddCommentsWindow();
+            //window.Show();
         }
     }
 }

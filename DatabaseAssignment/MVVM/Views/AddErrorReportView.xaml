@@ -60,7 +60,7 @@
                         Margin="0 16 10 10"
                         TextWrapping="Wrap"
                         AcceptsReturn="True"
-                        VerticalScrollBarVisibility="Visible"
+                        VerticalScrollBarVisibility="Auto"
                         Background="#242526"
                         Foreground="white"
                         BorderThickness="0"/>

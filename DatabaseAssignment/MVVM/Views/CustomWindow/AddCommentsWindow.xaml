@@ -1,0 +1,30 @@
+﻿<Window x:Class="DatabaseAssignment.MVVM.Views.CustomWindow.AddCommentsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseAssignment.MVVM.Views.CustomWindow"
+        mc:Ignorable="d"
+        xmlns:models="clr-namespace:DatabaseAssignment.MVVM.Models"
+        Title="Lägg till en kommentar" Height="320" Width="400"
+        Background="#18191A" >
+    <Grid>
+
+        <ListView Foreground="white" 
+                  Grid.Column="1" 
+                  Background="Transparent" 
+                  ItemsSource="{Binding Comments}"
+                  HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type models:Comments}">
+                    <Border Background="#242526" CornerRadius="3">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Id}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
+                            <TextBlock Text="{Binding Comment}" Padding="5 5 0 0" FontSize="18" FontWeight="Medium"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

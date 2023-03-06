@@ -72,3 +72,5 @@ C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssig
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\NewErrorReportsView.baml
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\MainErrorReportsView.g.cs
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\MainErrorReportsView.baml
+C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\CustomWindow\AddCommentsWindow.g.cs
+C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\CustomWindow\AddCommentsWindow.baml

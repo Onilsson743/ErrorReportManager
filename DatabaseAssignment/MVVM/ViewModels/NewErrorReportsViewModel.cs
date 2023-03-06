@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DatabaseAssignment.MVVM.Models;
+using DatabaseAssignment.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace DatabaseAssignment.MVVM.ViewModels;
 partial class NewErrorReportsViewModel : ObservableObject
 {
     //public static ObservableCollection<Person> Persons { get; set; } = new ObservableCollection<Person>();
-    public static ObservableCollection<ErrorReport> ErrorReport { get; set; } = new ObservableCollection<ErrorReport>();
+    //public static ObservableCollection<ErrorReport> ErrorReport { get; set; } = new ObservableCollection<ErrorReport>();
+    public static ObservableCollection<ErrorReport> ErrorReport { get; set; } = ContentDataServices.ErrorReports;
     public static ObservableCollection<Comments> Comments { get; set; } = new ObservableCollection<Comments>();
 
 
