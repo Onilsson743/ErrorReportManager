@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\App.xaml
-7-2110843891
+11-281850413
 
-34-640635282
-227314025405
-MainWindow.xaml;MVVM\Views\ActiveErrorReportsView.xaml;MVVM\Views\AddErrorReportView.xaml;MVVM\Views\CustomWindow\AddCommentsWindow.xaml;MVVM\Views\FinishedErrorReportsView.xaml;MVVM\Views\MainErrorReportsView.xaml;MVVM\Views\NewErrorReportsView.xaml;
+451948673844
+250-103479631
+MainWindow.xaml;MVVM\Views\ActiveErrorReportsView.xaml;MVVM\Views\AddErrorReportView.xaml;MVVM\Views\AdminView.xaml;MVVM\Views\CustomWindow\MoreDetailsWindow.xaml;MVVM\Views\ErrorReportsView.xaml;MVVM\Views\FinishedErrorReportsView.xaml;MVVM\Views\HomeScreenView.xaml;MVVM\Views\MainErrorReportsView.xaml;MVVM\Views\NewErrorReportsView.xaml;MVVM\Views\SearchErrorReportView.xaml;
 
-True
+False
 

@@ -15,21 +15,21 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-
+        
         <!--Displays all error reports-->
         <ListView Foreground="white" 
-            BorderBrush="Transparent"  
+            BorderBrush="Transparent"
             Grid.Column="0" 
             Background="#18191A" 
-            ItemsSource="{Binding ErrorReport}" 
+            ItemsSource="{Binding NewErrorReports}" 
             SelectionMode="Single" 
             SelectedItem="{Binding name}"
             HorizontalContentAlignment="Stretch"
-            x:Name="Contacts_ListView"     
+            x:Name="Contacts_ListView"
             >
             <ListView.ItemTemplate >
                 <DataTemplate DataType="{x:Type models:ErrorReport}">
-                    <Border CornerRadius="3" Background="#242526" MouseDown="Border_ShowComments">
+                    <Border Padding="5" CornerRadius="3" Background="#242526" MouseDown="Border_ShowComments" >
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -41,27 +41,48 @@
                                     <Label Content="Datum:" Foreground="#B0B3B8"/>
                                     <TextBlock Text="{Binding Date}" Margin="5 5 0 0" />
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="Id:" Foreground="#B0B3B8"/>
-                                    <TextBlock Text="{Binding ErrorId}" Margin="5 5 0 0" />
-                                </StackPanel>
+                                
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Status:" Foreground="#B0B3B8" />
                                     <TextBlock Text="{Binding Status}" Padding="5 5 0 0" />
                                 </StackPanel>
                                 <Label Content="Beskrivning" Foreground="#B0B3B8"/>
-                                <TextBlock Text="{Binding Description}" Padding="5 0 0 0" />
-
-
+                                <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow" MaxWidth="700"  Padding="5 0 0 0" />
                             </StackPanel>
 
-                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
-                                <Button Height="50" Click="btn_AddCommentClick" VerticalAlignment="Bottom" Content="Lägg till kommentar" >
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                <!--Button to open a details window-->
+                                <Button Foreground="white"
+                                        Grid.Column="0"
+                                        Content="  Se mer detaljer  "
+                                        Height="35"
+                                        Margin="0 0 5 5"
+                                        Click="btn_ShowDetails"
+                                        >
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="5"/>
+                                            <Setter Property="CornerRadius" Value="3"/>
                                         </Style>
                                     </Button.Resources>
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Background" Value="#3d3d3d"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#929292"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
                                 </Button>
                             </StackPanel>
                         </Grid>
@@ -129,6 +150,7 @@
                     Content="Lägg till kommentar"
                     Height="35"                    
                     Click="btn_AddCommentClick"
+                    MouseUp="btn_CommentMouseUp"
                     >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">

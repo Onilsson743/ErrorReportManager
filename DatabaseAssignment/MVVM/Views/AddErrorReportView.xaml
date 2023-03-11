@@ -14,7 +14,43 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label FontSize="20" Content="Skapa en ny felanmälan" Foreground="white"/>
+        <!--Button for going back-->
+        <Button Foreground="white"
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="Gå tillbaka"
+                Height="40"
+                Width="80"
+                Margin="10 0 0 0"
+                Command="{Binding GoToHomeViewCommand}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#242526"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3A3B3C"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Label FontSize="20" Content="Skapa en ny felanmälan" Foreground="white" HorizontalAlignment="Center"/>
         <ScrollViewer  VerticalScrollBarVisibility="Auto" Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>

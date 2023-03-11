@@ -13,16 +13,28 @@
     <Compile Update="MVVM\Views\AddErrorReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\Views\CustomWindow\AddCommentsWindow.xaml.cs">
+    <Compile Update="MVVM\Views\AdminView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\CustomWindow\MoreDetailsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\ErrorReportsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\FinishedErrorReportsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\HomeScreenView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\MainErrorReportsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\NewErrorReportsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\SearchErrorReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -36,16 +48,28 @@
     <Page Update="MVVM\Views\AddErrorReportView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\CustomWindow\AddCommentsWindow.xaml">
+    <Page Update="MVVM\Views\AdminView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\CustomWindow\MoreDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\ErrorReportsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\FinishedErrorReportsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\HomeScreenView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\MainErrorReportsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\NewErrorReportsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\SearchErrorReportView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

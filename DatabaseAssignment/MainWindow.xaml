@@ -8,21 +8,23 @@
         xmlns:viewmodels="clr-namespace:DatabaseAssignment.MVVM.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200"
+        Title="MainWindow" Height="800" Width="1200" 
         Background="#18191A"
         >
     <Grid>
-        <Grid.RowDefinitions>
+        
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
 
-        <Grid>
+        <!--<Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <!--Button for navigating to create new error report-->
+
+            --><!--Button for navigating to create new error report--><!--
             <Button Foreground="white"
                     Grid.Column="0"
                     Content="Skapa Ärende"
@@ -54,7 +56,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <!--Button for navigating to management section-->
+            --><!--Button for navigating to management section--><!--
             <Button Foreground="white"
                         Grid.Column="1"
                         Content="Hantera Ärenden"
@@ -87,25 +89,37 @@
                     </Style>
                 </Button.Style>
             </Button>
-        </Grid>
-        
+        </Grid>-->
+
         <!--All views used in the software is set here-->
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:AddErrorReportViewModel}">
                     <views:AddErrorReportView />
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:HomeScreenViewModel}">
+                    <views:HomeScreenView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:AdminViewModel}">
+                    <views:AdminView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:ErrorReportsViewModel}">
+                    <views:ErrorReportsView />
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:MainErrorReportsViewModel}">
                     <views:MainErrorReportsView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:ActiveErrorReportsViewModel}">
-                    <views:ActiveErrorReportsView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:NewErrorReportsViewModel}">
                     <views:NewErrorReportsView />
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:ActiveErrorReportsViewModel}">
+                    <views:ActiveErrorReportsView />
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:FinishedErrorReportsViewModel}">
                     <views:FinishedErrorReportsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:SearchErrorReportViewModel}">
+                    <views:SearchErrorReportView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

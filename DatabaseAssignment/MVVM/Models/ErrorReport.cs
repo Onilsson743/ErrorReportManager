@@ -6,7 +6,7 @@ namespace DatabaseAssignment.MVVM.Models;
 
 public class ErrorReport
 {
-    public int ErrorId { get; set; }
+    public int ErrorId { get; set; } 
     public DateTime Date { get; set; }
     public string Description { get; set; } = string.Empty;
     public Employee employee { get; set; } = new Employee();

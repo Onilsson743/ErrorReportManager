@@ -14,8 +14,6 @@ public class ErrorReportEntity
     public EmployeeEntity Employee { get; set; } = null!;
     public int PersonId { get; set; }
     public PersonEntity Person { get; set; } = null!;
-
     public string Status { get; set; } = "Ej Påbörjad";
-
     public ICollection<CommentsEntity> Comments { get; set; }
 }
