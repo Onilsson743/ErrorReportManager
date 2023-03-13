@@ -1,10 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using DatabaseAssignment.Services;
 using DatabaseAssignment.Services.Helpers;
-using GalaSoft.MvvmLight.Messaging;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Windows.Input;
 
 namespace DatabaseAssignment.MVVM.ViewModels;

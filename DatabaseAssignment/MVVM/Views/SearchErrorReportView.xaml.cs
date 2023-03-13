@@ -29,13 +29,13 @@ namespace DatabaseAssignment.MVVM.Views
         {
             InitializeComponent();
         }
-
+        DbServices db = new DbServices();
+        public ErrorReport errorReport { get; set; } = new ErrorReport();
         private async void btn_AddCommentClick(object sender, RoutedEventArgs e)
         {
-            var report = SearchErrorReportViewModel.errorReport;
+            var report = SearchErrorReportViewModel.ErrorReport;
             if (report.ErrorId != 0)
             {
-                DbServices db = new DbServices();
                 var comment = new CommentsEntity
                 {
                     Comment = tb_Comment.Text,
@@ -61,9 +61,44 @@ namespace DatabaseAssignment.MVVM.Views
 
         private async void btn_Search(object sender, RoutedEventArgs e)
         {
-            //int id = Int32.Parse(tb_Search.Text);
-            //DbServices db = new DbServices();
-            //await db.GetOneErrorReport(id);
+            int id = Int32.Parse(tb_Search.Text);
+            await db.GetOneErrorReport(id);
+        }
+
+        private void Border_ShowComments(object sender, MouseButtonEventArgs e)
+        {
+            var button = (Border)sender;
+            var contact = (ErrorReport)button.DataContext;
+            errorReport = contact;
+            SearchErrorReportViewModel.Comments.Clear();
+            foreach (var comment in contact.CommentsList)
+            {
+                SearchErrorReportViewModel.Comments.Add(comment);
+            }
+        }
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private async void btn_Remove(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var report = (ErrorReport)button.DataContext;
+
+            MessageBoxResult result = MessageBox.Show($"Är du säker på att du vill ta bort det här ärendet? \n \nId: {report.ErrorId}", "Radera Ärende", MessageBoxButton.YesNo);
+
+            if (MessageBoxResult.Yes == result)
+            {
+                await db.RemoveErrorReport(report.ErrorId);
+                MessageBox.Show("Kontakted Raderad!");
+            }
+        }
+        private async void btn_UpdateStatus(object sender, RoutedEventArgs e)
+        {
+            DbServices db = new DbServices();
+            var response = await db.UpdateErrorReportStatus(errorReport.ErrorId, cb_Status.Text);
+            tb_Response.Text = response.Item1;
+            tb_Status.Text = response.Item2;
         }
     }
 }

@@ -23,6 +23,6 @@ public partial class AdminViewModel : ObservableObject
         _navigation = navigation;
         GoToHomeViewCommand = new NavigateCommand<HomeScreenViewModel>(_navigation, () => new HomeScreenViewModel(_navigation));
         GoToErrorReportsCommand = new NavigateCommand<ErrorReportsViewModel>(_navigation, () => new ErrorReportsViewModel(_navigation));
-        //GoToSearchCommand = new NavigateCommand<SearchErrorReportViewModel>(_navigation, () => new SearchErrorReportViewModel(_navigation));
+        GoToSearchCommand = new NavigateCommand<SearchErrorReportViewModel>(_navigation, () => new SearchErrorReportViewModel(_navigation));
     }
 }

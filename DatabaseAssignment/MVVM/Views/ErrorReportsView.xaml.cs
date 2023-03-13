@@ -5,7 +5,7 @@ using DatabaseAssignment.Services;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-
+using DatabaseAssignment.MVVM.ViewModels;
 
 namespace DatabaseAssignment.MVVM.Views;
 
@@ -18,16 +18,17 @@ public partial class ErrorReportsView : UserControl
     {
         InitializeComponent();
     }
+    DbServices db = new DbServices();
     public ErrorReport errorReport { get; set; } = new ErrorReport();
     private void Border_ShowComments(object sender, MouseButtonEventArgs e)
     {
         var button = (Border)sender;
         var contact = (ErrorReport)button.DataContext;
         errorReport = contact;
-        ContentDataServices.Comments.Clear();
+        ErrorReportsViewModel.Comments.Clear();
         foreach (var comment in contact.CommentsList)
         {
-            ContentDataServices.Comments.Add(comment);
+            ErrorReportsViewModel.Comments.Add(comment);
         }
     }
 
@@ -36,13 +37,14 @@ public partial class ErrorReportsView : UserControl
 
         if (errorReport.ErrorId != 0)
         {
-            DbServices db = new DbServices();
             var comment = new CommentsEntity
             {
                 Comment = tb_Comment.Text,
                 ErrorReportId = errorReport.ErrorId
             };
             await db.AddCommentToErrorReport(comment);
+            await db.GetErrorReports();
+            tb_Comment.Text = string.Empty;
             MessageBox.Show("Din kommentar har lagts till!", "Info");
         }
         else
@@ -63,5 +65,19 @@ public partial class ErrorReportsView : UserControl
 
         MoreDetailsWindow window = new MoreDetailsWindow(report);
         window.Show();
+    }
+
+    private async void btn_Remove(object sender, RoutedEventArgs e)
+    {
+        var button = (Button)sender;
+        var report = (ErrorReport)button.DataContext;
+
+        MessageBoxResult result = MessageBox.Show($"Är du säker på att du vill ta bort det här ärendet? \n \nId: {report.ErrorId}", "Radera Ärende", MessageBoxButton.YesNo);
+
+        if (MessageBoxResult.Yes == result)
+        {
+            await db.RemoveErrorReport(report.ErrorId);
+            MessageBox.Show("Kontakted Raderad!");
+        }        
     }
 }

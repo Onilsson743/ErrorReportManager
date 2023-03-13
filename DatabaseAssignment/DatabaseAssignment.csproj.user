@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\Views\ActiveErrorReportsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MVVM\Views\AddErrorReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,16 +19,7 @@
     <Compile Update="MVVM\Views\ErrorReportsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\Views\FinishedErrorReportsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MVVM\Views\HomeScreenView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MVVM\Views\MainErrorReportsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MVVM\Views\NewErrorReportsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\SearchErrorReportView.xaml.cs">
@@ -40,9 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MVVM\Views\ActiveErrorReportsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\AddErrorReportView.xaml">
@@ -57,16 +42,7 @@
     <Page Update="MVVM\Views\ErrorReportsView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\Views\FinishedErrorReportsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MVVM\Views\HomeScreenView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MVVM\Views\MainErrorReportsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MVVM\Views\NewErrorReportsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\SearchErrorReportView.xaml">

@@ -106,7 +106,7 @@
                 <DataTemplate DataType="{x:Type viewmodels:ErrorReportsViewModel}">
                     <views:ErrorReportsView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:MainErrorReportsViewModel}">
+                <!--<DataTemplate DataType="{x:Type viewmodels:MainErrorReportsViewModel}">
                     <views:MainErrorReportsView />
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:NewErrorReportsViewModel}">
@@ -117,7 +117,7 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:FinishedErrorReportsViewModel}">
                     <views:FinishedErrorReportsView />
-                </DataTemplate>
+                </DataTemplate>-->
                 <DataTemplate DataType="{x:Type viewmodels:SearchErrorReportViewModel}">
                     <views:SearchErrorReportView/>
                 </DataTemplate>

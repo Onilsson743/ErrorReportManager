@@ -41,7 +41,7 @@ namespace DatabaseAssignment.MVVM.Views.CustomWindow
             DbServices db = new DbServices();
             var response = await db.UpdateErrorReportStatus(errorReport.ErrorId, cb_Status.Text);
             tb_Response.Text = response.Item1;
-            tb_Status.Text = response.Item2;
+            tb_Status.Text = response.Item2; 
         }
     }
 }

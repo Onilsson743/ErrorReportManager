@@ -21,11 +21,10 @@ public class DataContext : DbContext
 	{
 		if (!optionsBuilder.IsConfigured)
 		{
-            optionsBuilder.UseSqlServer(serverString);
-        }
-			
-	}
+			optionsBuilder.UseSqlServer(serverString);
+		}
 
+	}
 
 	public DbSet<AdressEntity> Adresses { get; set; }
 	public DbSet<PersonEntity> Persons { get; set; }

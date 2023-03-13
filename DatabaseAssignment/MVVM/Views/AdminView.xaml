@@ -57,7 +57,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!--Button for navigating to AddNewErrorReportView-->
+                <!--Button for navigating to SearchErrorReportView-->
                 <Button Foreground="white"
                     Grid.Column="0"
                     Content="Sök efter ett ärende"
@@ -89,7 +89,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--Button for navigating to Admin view-->
+                <!--Button for navigating to ErrorReportView-->
                 <Button Foreground="white"
                     Grid.Column="1"
                     Content="Visa ärenden"
