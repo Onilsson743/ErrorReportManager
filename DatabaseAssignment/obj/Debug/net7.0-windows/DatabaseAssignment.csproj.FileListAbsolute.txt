@@ -64,8 +64,6 @@ C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssig
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\AddErrorReportView.g.cs
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\AddErrorReportView.baml
-C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\CustomWindow\MoreDetailsWindow.g.cs
-C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\CustomWindow\MoreDetailsWindow.baml
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\SearchErrorReportView.g.cs
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\obj\Debug\net7.0-windows\MVVM\Views\SearchErrorReportView.baml
 C:\Users\onils\OneDrive\Skrivbord\Win22\C-Sharp\WpfManagmentSystem\DatabaseAssignment\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.dll

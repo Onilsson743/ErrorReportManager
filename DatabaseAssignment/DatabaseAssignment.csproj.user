@@ -13,9 +13,6 @@
     <Compile Update="MVVM\Views\AdminView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\Views\CustomWindow\MoreDetailsWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MVVM\Views\ErrorReportsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,9 +31,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\AdminView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MVVM\Views\CustomWindow\MoreDetailsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\ErrorReportsView.xaml">

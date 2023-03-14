@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DatabaseAssignment.MVVM.ViewModels;
+using DatabaseAssignment.Services;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DatabaseAssignment.MVVM.Views
 {
@@ -23,6 +14,17 @@ namespace DatabaseAssignment.MVVM.Views
         public AdminView()
         {
             InitializeComponent();
+        }
+        DbServices db = new DbServices();
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //int id = Int32.Parse(tb_SearchId.Text);
+            //var result = await db.GetOneErrorReport(id);
+            //if (result != null)
+            //{
+            //    //SearchErrorReportViewModel.ErrorReport = result;
+            //}
         }
     }
 }

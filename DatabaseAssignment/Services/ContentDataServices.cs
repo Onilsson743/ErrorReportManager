@@ -9,15 +9,8 @@ namespace DatabaseAssignment.Services;
 
 public static class ContentDataServices 
 {
-    public static ObservableCollection<ErrorReport> ErrorReports { get; set; } = new ObservableCollection<ErrorReport>();    
-
-
-    public static ObservableCollection<ErrorReport> GetList()
-    {
-        return ErrorReports;
-    }
-
-
-
+    public static ObservableCollection<ErrorReport> ErrorReports { get; set; } = new ObservableCollection<ErrorReport>();
+    public static ErrorReport ErrorReport;
+    public static ObservableCollection<Comments> Comments = new ObservableCollection<Comments>();
 
 }

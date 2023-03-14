@@ -10,7 +10,6 @@
         "dependencies": {
           "CommunityToolkit.Mvvm": "8.1.0",
           "Microsoft.EntityFrameworkCore": "7.0.3",
-          "Microsoft.EntityFrameworkCore.Design": "7.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.3",
           "Microsoft.Extensions.Hosting": "7.0.1",

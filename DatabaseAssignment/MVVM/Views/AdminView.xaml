@@ -59,11 +59,12 @@
 
                 <!--Button for navigating to SearchErrorReportView-->
                 <Button Foreground="white"
-                    Grid.Column="0"
-                    Content="Sök efter ett ärende"
-                    Height="150"
-                    Margin="5"
-                    Command="{Binding GoToSearchCommand}">
+                            Grid.Column="0"
+                            Content="Sök efter ärende"
+                            Height="150"
+                            Margin="5"
+                            Click="Button_Click"
+                            Command="{Binding GoToSearchCommand}">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>
@@ -89,6 +90,8 @@
                         </Style>
                     </Button.Style>
                 </Button>
+
+
                 <!--Button for navigating to ErrorReportView-->
                 <Button Foreground="white"
                     Grid.Column="1"

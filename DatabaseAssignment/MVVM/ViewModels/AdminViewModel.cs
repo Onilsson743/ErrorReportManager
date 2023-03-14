@@ -1,11 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DatabaseAssignment.Services.Helpers;
 using DatabaseAssignment.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DatabaseAssignment.MVVM.ViewModels;
@@ -25,4 +20,5 @@ public partial class AdminViewModel : ObservableObject
         GoToErrorReportsCommand = new NavigateCommand<ErrorReportsViewModel>(_navigation, () => new ErrorReportsViewModel(_navigation));
         GoToSearchCommand = new NavigateCommand<SearchErrorReportViewModel>(_navigation, () => new SearchErrorReportViewModel(_navigation));
     }
+
 }

@@ -1,22 +1,9 @@
 ﻿using DatabaseAssignment.MVVM.Models.Entities;
 using DatabaseAssignment.MVVM.Models;
-using DatabaseAssignment.MVVM.Views.CustomWindow;
 using DatabaseAssignment.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using DatabaseAssignment.MVVM.ViewModels;
 
 namespace DatabaseAssignment.MVVM.Views
 {
@@ -30,10 +17,10 @@ namespace DatabaseAssignment.MVVM.Views
             InitializeComponent();
         }
         DbServices db = new DbServices();
-        public ErrorReport errorReport { get; set; } = new ErrorReport();
+        public ErrorReport errorReport { get; set; } = ContentDataServices.ErrorReport;
         private async void btn_AddCommentClick(object sender, RoutedEventArgs e)
         {
-            var report = SearchErrorReportViewModel.ErrorReport;
+            var report = ContentDataServices.ErrorReport;
             if (report.ErrorId != 0)
             {
                 var comment = new CommentsEntity
@@ -50,36 +37,6 @@ namespace DatabaseAssignment.MVVM.Views
             }
         }
 
-        private void btn_ShowDetails(object sender, RoutedEventArgs e)
-        {
-            var button = (Button)sender;
-            var report = (ErrorReport)button.DataContext;
-
-            MoreDetailsWindow window = new MoreDetailsWindow(report);
-            window.Show();
-        }
-
-        private async void btn_Search(object sender, RoutedEventArgs e)
-        {
-            int id = Int32.Parse(tb_Search.Text);
-            await db.GetOneErrorReport(id);
-        }
-
-        private void Border_ShowComments(object sender, MouseButtonEventArgs e)
-        {
-            var button = (Border)sender;
-            var contact = (ErrorReport)button.DataContext;
-            errorReport = contact;
-            SearchErrorReportViewModel.Comments.Clear();
-            foreach (var comment in contact.CommentsList)
-            {
-                SearchErrorReportViewModel.Comments.Add(comment);
-            }
-        }
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
         private async void btn_Remove(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;

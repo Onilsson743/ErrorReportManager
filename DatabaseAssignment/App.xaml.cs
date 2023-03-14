@@ -33,10 +33,6 @@ public partial class App : Application
         var MainWindow = app.Services.GetRequiredService<MainWindow>();
         MainWindow.DataContext = new MainViewModel(_navigation);
 
-        //MainWindow = new MainWindow()
-        //{
-        //    DataContext = new MainViewModel()
-        //};
         MainWindow.Show();
         base.OnStartup(e);
     }

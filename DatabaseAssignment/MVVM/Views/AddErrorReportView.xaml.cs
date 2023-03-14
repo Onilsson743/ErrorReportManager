@@ -36,7 +36,20 @@ namespace DatabaseAssignment.MVVM.Views
             string description = tb_Description.Text;
 
             await context.CreateErrorReport(person, adress, description);
-            MessageBox.Show("klar", "klar");
+            MessageBox.Show("Ärendet har lagts till!", "Info");
+
+
+            //Clears all fields
+            tb_FirstName.Text = string.Empty;
+            tb_LastName.Text = string.Empty;
+            tb_Email.Text = string.Empty;
+            tb_PhoneNumber.Text = string.Empty;
+            tb_ApartmentNumber.Text = string.Empty;
+            tb_StreetName.Text = string.Empty;
+            tb_PostalCode.Text = string.Empty;
+            tb_City.Text = string.Empty;
+            tb_Description.Text = string.Empty;
+
         }
     }
 }

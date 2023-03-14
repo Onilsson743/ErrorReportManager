@@ -13,85 +13,8 @@
         >
     <Grid>
         
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>-->
 
-        <!--<Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            --><!--Button for navigating to create new error report--><!--
-            <Button Foreground="white"
-                    Grid.Column="0"
-                    Content="Skapa Ärende"
-                    Height="35"
-                    Margin="1 0 1 0"
-                    Command="{Binding GoToAddErrorReportViewCommand}">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="3"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#242526"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#3A3B3C"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            --><!--Button for navigating to management section--><!--
-            <Button Foreground="white"
-                        Grid.Column="1"
-                        Content="Hantera Ärenden"
-                        Height="35"
-                        Margin="1 0 1 0"
-                        Command="{Binding GoToErrorReportsViewCommand}">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="3"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Padding" Value="20"/>
-                        <Setter Property="Background" Value="#242526"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#3A3B3C"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-        </Grid>-->
-
-        <!--All views used in the software is set here-->
+        <!--All views used in the app-->
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:AddErrorReportViewModel}">
@@ -106,18 +29,6 @@
                 <DataTemplate DataType="{x:Type viewmodels:ErrorReportsViewModel}">
                     <views:ErrorReportsView />
                 </DataTemplate>
-                <!--<DataTemplate DataType="{x:Type viewmodels:MainErrorReportsViewModel}">
-                    <views:MainErrorReportsView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:NewErrorReportsViewModel}">
-                    <views:NewErrorReportsView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:ActiveErrorReportsViewModel}">
-                    <views:ActiveErrorReportsView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:FinishedErrorReportsViewModel}">
-                    <views:FinishedErrorReportsView />
-                </DataTemplate>-->
                 <DataTemplate DataType="{x:Type viewmodels:SearchErrorReportViewModel}">
                     <views:SearchErrorReportView/>
                 </DataTemplate>
