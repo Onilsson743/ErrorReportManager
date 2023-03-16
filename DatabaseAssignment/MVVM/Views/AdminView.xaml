@@ -63,7 +63,6 @@
                             Content="Sök efter ärende"
                             Height="150"
                             Margin="5"
-                            Click="Button_Click"
                             Command="{Binding GoToSearchCommand}">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">

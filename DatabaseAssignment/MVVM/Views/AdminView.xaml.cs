@@ -15,16 +15,5 @@ namespace DatabaseAssignment.MVVM.Views
         {
             InitializeComponent();
         }
-        DbServices db = new DbServices();
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //int id = Int32.Parse(tb_SearchId.Text);
-            //var result = await db.GetOneErrorReport(id);
-            //if (result != null)
-            //{
-            //    //SearchErrorReportViewModel.ErrorReport = result;
-            //}
-        }
     }
 }

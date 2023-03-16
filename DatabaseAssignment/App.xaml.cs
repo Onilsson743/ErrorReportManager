@@ -20,18 +20,20 @@ public partial class App : Application
         {
             services.AddSingleton<MainWindow>();
             services.AddSingleton<NavigationStore>();
+            services.AddSingleton<DbServices>();
 
         }).Build();
     }
     protected async override void OnStartup(StartupEventArgs e)
     {
         var _navigation = app.Services.GetRequiredService<NavigationStore>();
-        _navigation.CurrentViewModel = new HomeScreenViewModel(_navigation);
-        DbServices db = new DbServices();
-        await db.GetErrorReports();
+        var db = app.Services.GetRequiredService<DbServices>();
 
+        app.Start();
+
+        _navigation.CurrentViewModel = new HomeScreenViewModel(_navigation, db);
         var MainWindow = app.Services.GetRequiredService<MainWindow>();
-        MainWindow.DataContext = new MainViewModel(_navigation);
+        MainWindow.DataContext = new MainViewModel(_navigation, db);
 
         MainWindow.Show();
         base.OnStartup(e);

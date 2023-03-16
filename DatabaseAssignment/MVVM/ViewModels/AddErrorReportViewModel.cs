@@ -10,32 +10,16 @@ public partial class AddErrorReportViewModel : ObservableObject
 {
 
     private readonly NavigationStore _navigation;
+    private readonly DbServices db;
 
     public ICommand GoToHomeViewCommand { get; }
 
 
-    public AddErrorReportViewModel(NavigationStore navigation)
+    public AddErrorReportViewModel(NavigationStore navigation, DbServices _db)
     {
+        db = _db;
         _navigation = navigation;
-        GoToHomeViewCommand = new NavigateCommand<HomeScreenViewModel>(_navigation, () => new HomeScreenViewModel(_navigation));
-        //UpdateCommand = Update();
+        GoToHomeViewCommand = new NavigateCommand<HomeScreenViewModel>(_navigation, () => new HomeScreenViewModel(_navigation, db));
     }
-
-    //private ICommand Update()
-    //{
-    //    return new NavigateCommand<ContactsViewModel>(_AdressBook, () => new ContactsViewModel(_AdressBook));
-    //}
-
-
-
-
-
-
-
-    //[RelayCommand]
-    //public void ToIssues()
-    //{
-    //    Messenger.Default.Send(new ChangeViewModelMessage(new MainErrorReportsViewModel()));
-    //}
 
 }

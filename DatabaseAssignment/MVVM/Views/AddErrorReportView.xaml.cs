@@ -15,10 +15,10 @@ namespace DatabaseAssignment.MVVM.Views
         {
             InitializeComponent();
         }
+        private readonly DbServices db;
 
         private async void AddErrorReportClick(object sender, RoutedEventArgs e)
         {
-            var context = new DbServices();
             PersonEntity person = new PersonEntity
             {
                 FirstName = tb_FirstName.Text,
@@ -35,7 +35,7 @@ namespace DatabaseAssignment.MVVM.Views
             };           
             string description = tb_Description.Text;
 
-            await context.CreateErrorReport(person, adress, description);
+            await db.CreateErrorReport(person, adress, description);
             MessageBox.Show("Ärendet har lagts till!", "Info");
 
 

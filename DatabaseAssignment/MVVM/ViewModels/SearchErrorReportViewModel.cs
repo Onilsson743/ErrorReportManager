@@ -13,7 +13,7 @@ namespace DatabaseAssignment.MVVM.ViewModels;
 public partial class SearchErrorReportViewModel : ObservableObject
 {
     private readonly NavigationStore _navigation;
-    DbServices db = new DbServices();
+    private readonly DbServices db;
 
     [ObservableProperty]
     public static ErrorReport report;
@@ -26,10 +26,11 @@ public partial class SearchErrorReportViewModel : ObservableObject
     public ICommand GoToAdminViewCommand { get; }
 
 
-    public SearchErrorReportViewModel(NavigationStore navigation)
+    public SearchErrorReportViewModel(NavigationStore navigation, DbServices _db)
     {
+        db = _db;
         _navigation = navigation;
-        GoToAdminViewCommand = new NavigateCommand<AdminViewModel>(_navigation, () => new AdminViewModel(_navigation));
+        GoToAdminViewCommand = new NavigateCommand<AdminViewModel>(_navigation, () => new AdminViewModel(_navigation, db));
         Report = ContentDataServices.ErrorReport;
     }
 

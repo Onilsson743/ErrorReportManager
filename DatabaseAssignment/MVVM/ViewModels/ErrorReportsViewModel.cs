@@ -14,7 +14,7 @@ namespace DatabaseAssignment.MVVM.ViewModels;
 
 public partial class ErrorReportsViewModel : ObservableObject
 {
-    private DbServices db = new DbServices();
+    private readonly DbServices db;
     private readonly NavigationStore _navigation;
     [ObservableProperty]
     public ObservableCollection<Comments> comments;
@@ -28,10 +28,11 @@ public partial class ErrorReportsViewModel : ObservableObject
     public ICommand ShowDetailsCommand { get; }
 
 
-    public ErrorReportsViewModel(NavigationStore navigation)
+    public ErrorReportsViewModel(NavigationStore navigation, DbServices _db)
     {
         _navigation = navigation;
-        GoToAdminViewCommand = new NavigateCommand<AdminViewModel>(_navigation, () => new AdminViewModel(_navigation));
+        db = _db;
+        GoToAdminViewCommand = new NavigateCommand<AdminViewModel>(_navigation, () => new AdminViewModel(_navigation, db));
         ShowDetailsCommand = GoToDetails();
         GetReportsAsync();
         Comments = ContentDataServices.Comments;
@@ -44,6 +45,8 @@ public partial class ErrorReportsViewModel : ObservableObject
 
     public ICommand GoToDetails()
     {
-        return new NavigateCommand<SearchErrorReportViewModel>(_navigation, () => new SearchErrorReportViewModel(_navigation));
+        return new NavigateCommand<SearchErrorReportViewModel>(_navigation, () => new SearchErrorReportViewModel(_navigation, db));
     }
+
+
 }
