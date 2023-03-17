@@ -15,7 +15,7 @@ namespace DatabaseAssignment.MVVM.Views
         {
             InitializeComponent();
         }
-        private readonly DbServices db;
+        private readonly DbServices db = new DbServices();
 
         private async void AddErrorReportClick(object sender, RoutedEventArgs e)
         {

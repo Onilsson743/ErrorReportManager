@@ -17,12 +17,12 @@ public partial class ErrorReportsView : UserControl
         InitializeComponent();
     }
     DbServices db = new DbServices();
-    public ErrorReport errorReport { get; set; } = new ErrorReport();
+    public ErrorReport ErrorReport { get; set; } = new ErrorReport();
     private void Border_ShowComments(object sender, MouseButtonEventArgs e)
     {
         var button = (Border)sender;
         var contact = (ErrorReport)button.DataContext;
-        errorReport = contact;
+        ErrorReport = contact;
         ContentDataServices.Comments.Clear();
         foreach (var comment in contact.CommentsList)
         {
@@ -33,17 +33,24 @@ public partial class ErrorReportsView : UserControl
     private async void btn_AddCommentClick(object sender, RoutedEventArgs e)
     {
 
-        if (errorReport.ErrorId != 0)
+        if (ErrorReport.ErrorId != 0)
         {
             var comment = new CommentsEntity
             {
                 Comment = tb_Comment.Text,
-                ErrorReportId = errorReport.ErrorId
+                ErrorReportId = ErrorReport.ErrorId
             };
             await db.AddCommentToErrorReport(comment);
-            await db.GetErrorReports();
             tb_Comment.Text = string.Empty;
+
+            var report = await db.GetOneErrorReport(ErrorReport.ErrorId);
+            ContentDataServices.Comments.Clear();
+            foreach (var x in report.CommentsList)
+            {
+                ContentDataServices.Comments.Add(x);
+            }
             MessageBox.Show("Din kommentar har lagts till!", "Info");
+
         }
         else
         {

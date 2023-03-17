@@ -89,6 +89,10 @@
 
                                 <StackPanel Grid.Column="0" >
                                     <StackPanel Orientation="Horizontal">
+                                        <Label Content="Id: " Foreground="#B0B3B8"/>
+                                        <TextBlock Text="{Binding ErrorId}" Margin="5 5 0 0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
                                         <Label Content="Datum:" Foreground="#B0B3B8"/>
                                         <TextBlock Text="{Binding Date}" Margin="5 5 0 0" />
                                     </StackPanel>
